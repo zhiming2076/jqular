@@ -2,7 +2,7 @@
 import * as $ from "jquery";
 import 'jquery-ui-dist/jquery-ui';
 import _ from 'lodash';
-import '../src/views/table/simple-table/index'
+import '../src/views';
 
 export class Route {
   constructor() {
@@ -15,7 +15,6 @@ export class Route {
 }
 
 export class Router {
-
   constructor() {
     this.routeHolder = null;// route-linke
     this.viewHolder = null;// route-view
@@ -59,8 +58,9 @@ export class Router {
     if (one && !!one.component) {
       let div = $("<div>");//.views.simpleTableView();
       //require('../src/views/');
-      console.log(div.simpleTable());
-      //this.viewHolder.append(div);
+      this.viewHolder
+        .empty()
+        .append(div.simpleTableView({ value: 20 }));
     }
   };
 

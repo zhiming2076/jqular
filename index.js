@@ -1,7 +1,7 @@
 import * as $ from "jquery";
 
 import { App } from './src/app';
-import { Router } from "./route/router";
+import { Router } from "./route";
 
 
 let app = new App({

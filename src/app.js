@@ -1,5 +1,5 @@
 import * as $ from "jquery";
-import { Router } from "../route/router";
+import { Router } from "../route";
 
 
 export class App {
