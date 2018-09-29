@@ -1,13 +1,14 @@
-import * as $ from "jquery";
-import 'jquery-ui-dist/jquery-ui';
-import _ from 'lodash';
+// import * as $ from "jquery";
+// import '../../../plugins/bootstrap-v3.3.7/js/bootstrap';
+// import 'jquery-ui-dist/jquery-ui';
+// import _ from 'lodash';
 
-//var template = require('index.html');
 $.widget("layout.defaultLayout", {
+  options: {
+    template: require('./index.html')
+  },
   _create: function () {
-    var progress = this.options.value + "%";
     this.element
-      .addClass("progressbar")
-      .text(progress);
+      .append(this.options.template);
   }
 });

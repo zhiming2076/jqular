@@ -32,7 +32,11 @@ export class App {
 
         // 初始化显示布局
         if (!!this.layout) {
-            this.element.empty().classicLayout();
+            if (this.element[this.layout]) {
+                this.element.empty()[this.layout]();
+            } else {
+                console.error(`layout '${this.layout}'未定义。`);
+            }
         }
 
         // router
