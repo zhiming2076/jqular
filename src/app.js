@@ -1,6 +1,7 @@
 import * as $ from "jquery";
+import 'jquery-ui-dist/jquery-ui';
 import { Router } from "../route";
-
+import './layouts/index';
 
 export class App {
     constructor(props) {
@@ -31,7 +32,7 @@ export class App {
 
         // 初始化显示布局
         if (!!this.layout) {
-            $(this.element).empty().append(this.layout);
+            this.element.empty().classicLayout();
         }
 
         // router

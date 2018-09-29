@@ -60,7 +60,7 @@ export class Router {
       //require('../src/views/');
       this.viewHolder
         .empty()
-        .append(div.simpleTableView({ value: 20 }));
+        .append(div.simpleTableView({ value: Math.round(Math.random() * 100) }));
     }
   };
 
