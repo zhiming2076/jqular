@@ -33,14 +33,15 @@ module.exports = {
         test: /app.css$/,
         use: appCSSPlugin.extract({
           fallback: "style-loader",
-          use: ['css-loader', 'postcss-loader']
+          use: 'css-loader'
         })
       },
       {
-        test: /a.css$/,
+        test: /\.css$/,
+        include: /(node_modules|plugins)/,
         use: vendorsCSSPlugin.extract({
           fallback: "style-loader",
-          use: ['css-loader', 'postcss-loader']
+          use: 'css-loader'
         })
       },
       {
@@ -68,7 +69,7 @@ module.exports = {
       title: 'Jqular',
       template: "index.html"
     }),
-    appCSSPlugin, vendorsCSSPlugin,
+    vendorsCSSPlugin, appCSSPlugin,
     // new CopyWebpackPlugin([
     //   { from: 'plugins/**/**/*.css', to: 'css/*.css' },
     //   { from: 'plugins/**/**/*.css', to: 'css/*.css' }
