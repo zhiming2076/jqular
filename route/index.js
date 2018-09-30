@@ -2,7 +2,7 @@
 import * as $ from "jquery";
 import 'jquery-ui-dist/jquery-ui';
 import _ from 'lodash';
-import '../src/views';
+// import '../src/views';
 
 export class Route {
   constructor() {
@@ -34,18 +34,18 @@ export class Router {
 
   init() {
     // app init的时候，router-link尚未进入dom，故不能在constructor中初始化
-    this.routeHolder = $("#app router-link");
-    this.viewHolder = $("#app router-view");
+    // this.routeHolder = $("#app router-link");
+    // this.viewHolder = $("#app router-view");
 
-    if (!!this.routes && this.routes.length) {
-      let wapper = $("<ul>");
-      this.routes.forEach((v, i) => {
-        let link = $(`<li><a key='${v.key}' href='#${v.path}'>${v.title}</a></li>`)
-        wapper.append(link);
-      });
+    // if (!!this.routes && this.routes.length) {
+    //   let wapper = $("<ul>");
+    //   this.routes.forEach((v, i) => {
+    //     let link = $(`<li><a key='${v.key}' href='#${v.path}'>${v.title}</a></li>`)
+    //     wapper.append(link);
+    //   });
 
-      $(this.routeHolder).append(wapper.children());
-    }
+    //   $(this.routeHolder).append(wapper.children());
+    // }
 
     // register event
     this.bindEvents();
@@ -56,8 +56,9 @@ export class Router {
     let one = _.find(this.routes, ["path", path]);
 
     if (one && !!one.component) {
-      let div = $("<div>");//.views.simpleTableView();
-      //require('../src/views/');
+      let comp = require('../src/views/tableView/simple-table/index');
+      let div = $("<div>");
+
       this.viewHolder
         .empty()
         .append(div.simpleTableView({ value: Math.round(Math.random() * 100) }));
@@ -75,6 +76,8 @@ export class Router {
     if (location.hash.indexOf("#!/") === 0) {
       currentUrl = location.hash.substring(2);
     } else if (location.hash.indexOf("#/") === 0) {
+      currentUrl = location.hash.substring(1);
+    } else if (location.hash.indexOf("#") === 0) {
       currentUrl = location.hash.substring(1);
     }
     else {

@@ -16,7 +16,7 @@ import { Router } from "./route";
 let app = new App({
   element: $("#app"),
   router: new Router(),
-  layout: "defaultLayout"
+  layout: "classicLayout"
 });
 
 //jquery $()

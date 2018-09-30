@@ -4,8 +4,8 @@ import { Router } from "../route";
 import './layouts/index';
 
 export class App {
-    constructor(props) {
-        let { element, router, layout } = props;
+    constructor(options) {
+        let { element, router, layout } = options;
         this.element = element;
         this.router = router;
         this.layout = layout;
