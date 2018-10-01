@@ -17,8 +17,6 @@ export class Router {
   constructor({ $rootScope }) {
     // options
     this.$rootScope = $rootScope;
-
-    this.routeHolder = null;// route-linke
     this.routes = [];
 
     this.hasPushState = !!(history && history.pushState);
@@ -34,19 +32,31 @@ export class Router {
   };
 
   init() {
-    // route-view
-    this.viewHolder = $("#app route-view");
+    // router-view
+    this.viewHolder = $("#app router-view");
     if (!this.viewHolder || !this.viewHolder.length) {
-      console.error("模板中没有找到<route-view />标记.");
+      console.error("模板中没有找到<router-view />标记.");
+      return;
+    }
+
+    // route-link
+    this.routeHolder = $("#app [router-link]");
+    if (!this.routeHolder || !this.routeHolder.length) {
+      console.error("模板中没有找到[router-link]标记.");
       return;
     }
 
     // register event
     this.bindEvents();
+
+    // first go
+    this.go(window.location.hash);
   };
 
-  go() {
-    let path = this.parseUrl(window.location.hash)
+  go(path) {
+    path = !path ? window.location.hash : path;
+    path = this.parseUrl(window.location.hash)
+
     let one = _.find(this.routes, ["path", path]);
 
     if (one && !!one.component) {
@@ -56,6 +66,10 @@ export class Router {
         .append(div[one.component]({
           $rootScope: this.$rootScope
         }));
+
+      //active by key
+      $("[router-item].active", this.routeHolder).removeClass("active");
+      $(`[router-item][key='${one.key}']`, this.routeHolder).addClass("active");
     }
   };
 
