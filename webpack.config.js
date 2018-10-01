@@ -30,7 +30,8 @@ module.exports = {
         use: [{ loader: "babel-loader" }]
       },
       {
-        test: /app.css$/,
+        test: /\.css$/,
+        include: /(src)/,
         use: appCSSPlugin.extract({
           fallback: "style-loader",
           use: 'css-loader'

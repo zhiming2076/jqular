@@ -1,11 +1,10 @@
-
-import * as $ from "jquery";
-import 'jquery-ui-dist/jquery-ui';
-import _ from 'lodash';
-// import '../src/views';
+/*
+* jqular route
+*/
 
 export class Route {
   constructor() {
+    // init
     this.key = "";
     this.path = "";
     this.title = "";
@@ -15,9 +14,11 @@ export class Route {
 }
 
 export class Router {
-  constructor() {
+  constructor({ $rootScope }) {
+    // options
+    this.$rootScope = $rootScope;
+
     this.routeHolder = null;// route-linke
-    this.viewHolder = null;// route-view
     this.routes = [];
 
     this.hasPushState = !!(history && history.pushState);
@@ -33,19 +34,12 @@ export class Router {
   };
 
   init() {
-    // app init的时候，router-link尚未进入dom，故不能在constructor中初始化
-    // this.routeHolder = $("#app router-link");
-    // this.viewHolder = $("#app router-view");
-
-    // if (!!this.routes && this.routes.length) {
-    //   let wapper = $("<ul>");
-    //   this.routes.forEach((v, i) => {
-    //     let link = $(`<li><a key='${v.key}' href='#${v.path}'>${v.title}</a></li>`)
-    //     wapper.append(link);
-    //   });
-
-    //   $(this.routeHolder).append(wapper.children());
-    // }
+    // route-view
+    this.viewHolder = $("#app route-view");
+    if (!this.viewHolder || !this.viewHolder.length) {
+      console.error("模板中没有找到<route-view />标记.");
+      return;
+    }
 
     // register event
     this.bindEvents();
@@ -56,12 +50,12 @@ export class Router {
     let one = _.find(this.routes, ["path", path]);
 
     if (one && !!one.component) {
-      let comp = require('../src/views/tableView/simple-table/index');
       let div = $("<div>");
-
       this.viewHolder
         .empty()
-        .append(div.simpleTableView({ value: Math.round(Math.random() * 100) }));
+        .append(div[one.component]({
+          $rootScope: this.$rootScope
+        }));
     }
   };
 
@@ -81,11 +75,11 @@ export class Router {
       currentUrl = location.hash.substring(1);
     }
     else {
-      return '';
+      return '/';
     }
     // and if the last character is a slash, we just remove it
     currentUrl = currentUrl.replace(/\/$/, "");
 
-    return currentUrl;
+    return "/" + currentUrl;
   }
 }
