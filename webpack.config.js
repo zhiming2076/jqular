@@ -46,15 +46,30 @@ module.exports = {
         })
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|jpg|gif)$/,
         use: [
-          'file-loader'
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '/images/',
+              useRelativePath: true,
+              name: '[name].[ext]'
+            }
+          }
         ]
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
         use: [
-          'file-loader'
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: '/css/',
+              publicPath: 'fonts/',
+              useRelativePath: true,
+              name: '[name].[ext]'
+            }
+          }
         ]
       },
       {
