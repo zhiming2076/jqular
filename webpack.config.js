@@ -5,8 +5,8 @@ const webpack = require('webpack');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const appCSSPlugin = new ExtractTextPlugin('css/app.css');
-const vendorsCSSPlugin = new ExtractTextPlugin('css/vendors.css');
+const appCSSPlugin = new ExtractTextPlugin('app.css');
+const vendorsCSSPlugin = new ExtractTextPlugin('vendors.css');
 
 module.exports = {
   entry: {
@@ -46,7 +46,7 @@ module.exports = {
         })
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif)$/,
         use: [
           {
             loader: 'file-loader',
@@ -59,12 +59,11 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              outputPath: '/css/',
               publicPath: 'fonts/',
               useRelativePath: true,
               name: '[name].[ext]'

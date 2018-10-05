@@ -1,16 +1,11 @@
 <div class="layout-default">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-          aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">WE NOW!</a>
-      </div>
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <span class="logo-mini"><b>WE</b></span>
+        <span class="logo-lg"><b>WE</b><small> NOW!</small></span>
+      </a>
       <div id="navbar" class="navbar-collapse collapse">
         <ul router-link class="nav navbar-nav navbar-right nav-notices">
           <li router-item key="Dashboard"><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
@@ -19,9 +14,6 @@
               <img src="http://localhost:91/static/images/matthew.png" class="img-circle" style="width: 24px" />
             </a></li>
         </ul>
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Search...">
-        </form>
       </div>
     </div>
   </nav>
@@ -33,33 +25,25 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="active treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          <i class="fa fa-dashboard"></i> <span>工作台</span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-files-o"></i>
+          <span>系统设置</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-          <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-        </ul>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-files-o"></i>
-          <span>Layout Options</span>
-          <span class="pull-right-container">
-            <span class="label label-primary pull-right">4</span>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-          <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-          <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-          <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+          <li><a href="#domain"><i class="fa fa-circle-o"></i> 域名管理</a></li>
+          <li><a href="#document"><i class="fa fa-circle-o"></i> 文档管理</a></li>
+          <li><a href="#auth"><i class="fa fa-circle-o"></i> 账户&权限</a></li>
         </ul>
       </li>
       <li>
-        <a href="pages/widgets.html">
+        <a href="#">
           <i class="fa fa-th"></i> <span>Widgets</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-green">new</small>
@@ -124,7 +108,7 @@
         </ul>
       </li>
       <li>
-        <a href="pages/calendar.html">
+        <a href="#">
           <i class="fa fa-calendar"></i> <span>Calendar</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-red">3</small>
@@ -133,7 +117,7 @@
         </a>
       </li>
       <li>
-        <a href="pages/mailbox/mailbox.html">
+        <a href="#">
           <i class="fa fa-envelope"></i> <span>Mailbox</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-yellow">12</small>
@@ -194,11 +178,7 @@
           <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
         </ul>
       </li>
-      <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-      <li class="header">LABELS</li>
-      <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-      <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-      <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+      <li><a href="#"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
     </ul>
   </div>
 
