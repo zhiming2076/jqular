@@ -68,8 +68,8 @@ export class Router {
         }));
 
       //active by key
-      $("[router-item].active", this.routeHolder).removeClass("active");
-      $(`[router-item][key='${one.key}']`, this.routeHolder).addClass("active");
+      $("[router-link].active").removeClass("active");
+      $(`[router-link][key='${one.key}']`).addClass("active");
     }
   };
 

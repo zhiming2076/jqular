@@ -64,12 +64,8 @@ $.widget("layout.defaultLayout", {
     var parentLi = link.parent();
     var isOpen = parentLi.hasClass('menu-open');
 
-    if (!parentLi.is('.treeview')) {
-      return;
-    }
-
-    //只有一层
-    if (!treeviewMenu.length) {
+    //只有一层，或者是叶子
+    if (!treeviewMenu.length || !parentLi.is('.treeview')) {
       return;
     }
 

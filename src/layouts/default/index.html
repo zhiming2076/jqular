@@ -7,10 +7,10 @@
         <span class="logo-lg"><b>WE</b><small> NOW!</small></span>
       </a>
       <div id="navbar" class="navbar-collapse collapse">
-        <ul router-link class="nav navbar-nav navbar-right nav-notices">
-          <li router-item key="Dashboard"><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
-          <li router-item key="Settings"><a href="#"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a></li>
-          <li router-item key="Profile"><a href="#">
+        <ul class="nav navbar-nav navbar-right nav-notices">
+          <li router-link key="Dashboard"><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
+          <li router-link key="Settings"><a href="#"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a></li>
+          <li router-link key="Profile"><a href="#">
               <img src="http://localhost:91/static/images/matthew.png" class="img-circle" style="width: 24px" />
             </a></li>
         </ul>
@@ -23,7 +23,7 @@
       导航
     </div>
     <ul class="sidebar-menu" data-widget="tree">
-      <li class="active treeview">
+      <li router-link key='dashboard' class="active treeview">
         <a href="#">
           <i class="fa fa-dashboard"></i> <span>工作台</span>
         </a>
@@ -37,9 +37,9 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#domain"><i class="fa fa-circle-o"></i> 域名管理</a></li>
-          <li><a href="#document"><i class="fa fa-circle-o"></i> 文档管理</a></li>
-          <li><a href="#auth"><i class="fa fa-circle-o"></i> 账户&权限</a></li>
+          <li router-link key='domain'><a href="#domain"><i class="fa fa-circle-o"></i> 域名管理</a></li>
+          <li router-link key='document'><a href="#document"><i class="fa fa-circle-o"></i> 文档管理</a></li>
+          <li router-link key='auth'><a href="#auth"><i class="fa fa-circle-o"></i> 账户&权限</a></li>
         </ul>
       </li>
       <li>
