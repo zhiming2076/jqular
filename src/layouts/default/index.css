@@ -63,6 +63,7 @@
 */
 
 .layout-sidebar {
+  position: fixed;
   width: 230px;
   height: calc(100vh - 50px);
   float: left;

@@ -1,14 +1,18 @@
-// import * as $ from "jquery";
-// import 'jquery-ui-dist/jquery-ui';
-// import _ from 'lodash';
 
 $.widget("view.simpleTableView", {
-  option: {
-    $rootScope: undefined
+  options: {
+    $rootScope: undefined,
+    template: require('./index.html'),
   },
   _create: function () {
-    
+    let $wapper = $("<div>");
+    let html = $.parseHTML(this.options.template);
+
+    $wapper.append(html[0].content.children);
+
+    $("jq-former", $wapper).formerComp();
+
     this.element
-      .text("simpleTableView");
+      .append($wapper);
   }
 });
