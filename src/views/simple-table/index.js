@@ -13,6 +13,6 @@ $.widget("view.simpleTableView", {
     $("jq-former", $wapper).formerComp();
 
     this.element
-      .append($wapper);
+      .append($wapper.children());
   }
 });
