@@ -1,3 +1,5 @@
+import '../../../plugins/DataTables-1.10.18/css/jquery.dataTables.css';
+import '../../../plugins/DataTables-1.10.18/js/jquery.dataTables';
 
 $.widget("view.simpleTableView", {
   options: {
@@ -14,5 +16,7 @@ $.widget("view.simpleTableView", {
 
     this.element
       .append($wapper.children());
+
+    $('#table_id', this.element).DataTable();
   }
 });

@@ -53,12 +53,12 @@ $.widget("component.formerComp", {
                 $submit: {
                   tag: 'submit',
                   title: '查询',
-                  class: "btn-primary"
+                  class: "btn-primary ml-1"
                 },
                 $reset: {
                   tag: 'reset',
                   title: '重置',
-                  class: "btn-default"
+                  class: "btn-default ml-1"
                 }
               }
             }
@@ -126,10 +126,10 @@ $.widget("component.formerComp", {
         </div>`;
       },
       submit: (prop, attr, span, validator) => {
-        return `<button type="submit" class="btn btn-sm ${attr.class}">${attr.title}</button>`;
+        return ` <button type="submit" class="btn btn-sm ${attr.class}">${attr.title}</button> `;
       },
       reset: (prop, attr, span, validator) => {
-        return `<button type="reset" class="btn btn-sm ${attr.class}">${attr.title}</button>`;
+        return ` <button type="reset" class="btn btn-sm ${attr.class}">${attr.title}</button> `;
       },
     },
     horizontal: ''
@@ -138,7 +138,7 @@ $.widget("component.formerComp", {
     let $form = $('<form class="form-horizontal" role="form">');
     formsets.map((row) => {
       row.map((col) => {
-        let $group = $('<div class="form-group form-group-sm">');
+        let $group = $('<div class="form-group form-group-sm mr-0">');
         let { range, span } = col;
         if (range) {
           $group.addClass(`col-sm-${range}`);
